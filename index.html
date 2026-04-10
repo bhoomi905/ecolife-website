@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoLife - Save Environment</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial;
+}
+
+body {
+  background: #f4f9f4;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background: #2e7d32;
+  color: white;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1000;
+}
+
+nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.hero {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+  url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6');
+  background-size: cover;
+}
+
+.btn {
+  padding: 10px 20px;
+  background: #66bb6a;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #388e3c;
+  transform: scale(1.1);
+}
+
+.section {
+  padding: 50px;
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  margin: 10px;
+  width: 250px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  border-radius: 10px;
+}
+
+input, textarea {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+footer {
+  background: #1b5e20;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+
+@media(max-width: 768px){
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+  <h2>EcoLife</h2>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div>
+    <h1>Save Nature 🌍</h1>
+    <p>Make the Earth Green Again</p>
+    <button class="btn" onclick="showMessage()">Get Started</button>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <h2>About</h2>
+  <p>We promote eco-friendly lifestyle and sustainability.</p>
+</section>
+
+<section class="section" id="services">
+  <h2>Services</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Plant Trees</h3>
+      <p>Grow more trees to save environment.</p>
+    </div>
+    <div class="card">
+      <h3>Recycle</h3>
+      <p>Reduce waste by recycling materials.</p>
+    </div>
+    <div class="card">
+      <h3>Awareness</h3>
+      <p>Educate people about nature.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <h2>Contact</h2>
+  <form onsubmit="return validateForm()">
+    <input type="text" id="name" placeholder="Your Name"><br>
+    <input type="email" id="email" placeholder="Your Email"><br>
+    <textarea id="message" placeholder="Your Message"></textarea><br>
+    <button class="btn">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2026 EcoLife</p>
+</footer>
+
+<script>
+// Button click function
+function showMessage() {
+  alert("Welcome to EcoLife 🌿");
+
+  // After OK → scroll to contact section
+  document.getElementById("contact").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+// Smooth scrolling for navbar
+document.querySelectorAll('a').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href'))
+      .scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// Form validation
+function validateForm() {
+  let name = document.getElementById("name").value;
+  let email = document.getElementById("email").value;
+  let message = document.getElementById("message").value;
+
+  if (name === "" || email === "" || message === "") {
+    alert("Please fill all fields!");
+    return false;
+  }
+
+  alert("Message Sent Successfully ✅ (Demo Only)");
+  return false;
+}
+</script>
+
+</body>
+</html>
